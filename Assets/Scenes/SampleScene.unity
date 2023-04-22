@@ -438,6 +438,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  gravity: -9.8
+  jumpHeight: 1
+  crouchTimer: 0
+  lerpCrouch: 0
+  crouching: 0
+  sprinting: 0
+--- !u!114 &471443518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471443511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ccd1a7ce1edb84ca5be7eb4754f012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1923720427}
+  xRotation: 0
+  xSensitivity: 30
+  ySensitivity: 30
 --- !u!1 &570907011
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +933,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &1923720427 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 487309521202142507, guid: 81043fa65c043834594291a6f0e49be0, type: 3}
+  m_PrefabInstance: {fileID: 487309520272519256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &487309520272519256
 PrefabInstance:
   m_ObjectHideFlags: 0

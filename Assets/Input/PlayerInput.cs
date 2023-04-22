@@ -44,6 +44,33 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""60773bd1-1738-4e47-88fe-edf0e2fe06c1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Crouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""80db5666-9a66-4839-97ef-109016ac4460"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""07589354-2293-4382-8a4d-b73ed4048efc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +139,39 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79ae548c-1aa1-4645-8d9d-e8f727b0a0f5"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3ca3fda-5037-4f0e-8da7-2607cc759497"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""089c2d33-5392-48b6-aa94-6be2cb994a54"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +182,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Walkin = asset.FindActionMap("Walkin", throwIfNotFound: true);
         m_Walkin_Movement = m_Walkin.FindAction("Movement", throwIfNotFound: true);
         m_Walkin_Jump = m_Walkin.FindAction("Jump", throwIfNotFound: true);
+        m_Walkin_Look = m_Walkin.FindAction("Look", throwIfNotFound: true);
+        m_Walkin_Crouch = m_Walkin.FindAction("Crouch", throwIfNotFound: true);
+        m_Walkin_Sprint = m_Walkin.FindAction("Sprint", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -183,12 +246,18 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private IWalkinActions m_WalkinActionsCallbackInterface;
     private readonly InputAction m_Walkin_Movement;
     private readonly InputAction m_Walkin_Jump;
+    private readonly InputAction m_Walkin_Look;
+    private readonly InputAction m_Walkin_Crouch;
+    private readonly InputAction m_Walkin_Sprint;
     public struct WalkinActions
     {
         private @PlayerInput m_Wrapper;
         public WalkinActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Walkin_Movement;
         public InputAction @Jump => m_Wrapper.m_Walkin_Jump;
+        public InputAction @Look => m_Wrapper.m_Walkin_Look;
+        public InputAction @Crouch => m_Wrapper.m_Walkin_Crouch;
+        public InputAction @Sprint => m_Wrapper.m_Walkin_Sprint;
         public InputActionMap Get() { return m_Wrapper.m_Walkin; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -204,6 +273,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_WalkinActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_WalkinActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_WalkinActionsCallbackInterface.OnJump;
+                @Look.started -= m_Wrapper.m_WalkinActionsCallbackInterface.OnLook;
+                @Look.performed -= m_Wrapper.m_WalkinActionsCallbackInterface.OnLook;
+                @Look.canceled -= m_Wrapper.m_WalkinActionsCallbackInterface.OnLook;
+                @Crouch.started -= m_Wrapper.m_WalkinActionsCallbackInterface.OnCrouch;
+                @Crouch.performed -= m_Wrapper.m_WalkinActionsCallbackInterface.OnCrouch;
+                @Crouch.canceled -= m_Wrapper.m_WalkinActionsCallbackInterface.OnCrouch;
+                @Sprint.started -= m_Wrapper.m_WalkinActionsCallbackInterface.OnSprint;
+                @Sprint.performed -= m_Wrapper.m_WalkinActionsCallbackInterface.OnSprint;
+                @Sprint.canceled -= m_Wrapper.m_WalkinActionsCallbackInterface.OnSprint;
             }
             m_Wrapper.m_WalkinActionsCallbackInterface = instance;
             if (instance != null)
@@ -214,6 +292,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
+                @Crouch.started += instance.OnCrouch;
+                @Crouch.performed += instance.OnCrouch;
+                @Crouch.canceled += instance.OnCrouch;
+                @Sprint.started += instance.OnSprint;
+                @Sprint.performed += instance.OnSprint;
+                @Sprint.canceled += instance.OnSprint;
             }
         }
     }
@@ -222,5 +309,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
+        void OnCrouch(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
     }
 }
