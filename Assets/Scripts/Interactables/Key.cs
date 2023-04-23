@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Key : Interactions
 {
+    //this bool is used to know if the player collected the key
+    public GameObject particle;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,8 @@ public class Key : Interactions
     //function where we design the interation with code
     protected override void Interact()
     {
-        Debug.Log("Interacted with" + gameObject.name);
+        Debug.Log("Interacted with " + gameObject.name);
+        Destroy(gameObject);
+        Instantiate(particle, transform.position, Quaternion.identity);
     }
 }

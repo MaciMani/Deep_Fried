@@ -23,7 +23,6 @@ public class PlayerInteractions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         playerUi.UpdateText(string.Empty);
         //create ray at center of camara, shooting outwards
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
