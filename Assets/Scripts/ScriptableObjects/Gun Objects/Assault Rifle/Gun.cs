@@ -28,7 +28,7 @@ public class Gun : MonoBehaviour
                 {
                     IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
                     damageable?.TakeDamage(gunData.damage);
-                    Debug.Log("ola");
+                    
                 }
             }
 
