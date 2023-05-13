@@ -14,6 +14,6 @@ public class GunData : ScriptableObject
 
     [Header("Ammo")]
     public int currentAmmo;
-    //public int magSize;
+    public int maxAmmo;
     public float fireRate;
 }
