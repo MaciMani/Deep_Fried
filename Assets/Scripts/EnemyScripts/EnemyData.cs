@@ -28,7 +28,7 @@ public class EnemyData : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
-    public float damageAmount = 10f; // The amount of damage dealt to the player
+    public int damageAmount = 10; // The amount of damage dealt to the player
 
     private void Update()
     {
@@ -90,13 +90,24 @@ public class EnemyData : MonoBehaviour
         agent.SetDestination(transform.position);
 
         transform.LookAt(player);
-        /*
+        
         if (!alreadyAttacked)
         {
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
-        */
+        
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Transform hitTransform = collision.transform;
+        if (hitTransform.CompareTag("Player"))
+        {
+            Debug.Log("Hit Player");
+            hitTransform.GetComponent<PlayerHealth>().TakeDamage(damageAmount);
+        }
     }
 
     private void ResetAttack() 
