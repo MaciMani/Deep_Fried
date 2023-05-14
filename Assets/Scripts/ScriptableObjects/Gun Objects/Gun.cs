@@ -11,11 +11,16 @@ public class Gun : MonoBehaviour
 
     float timeSinceLastShot;
 
-    private void Start()
+    private void Awake()
+    {
+        gunData.currentAmmo = gunData.maxAmmo;
+    }
+
+    private void OnEnable()
     {
         PlayerShoot.shootInput += Shoot;
     }
-
+    
     private bool CanShoot() => timeSinceLastShot > 1f / (gunData.fireRate / 60f);
 
     public void Shoot() 
@@ -30,11 +35,10 @@ public class Gun : MonoBehaviour
                     damageable?.TakeDamage(gunData.damage);
                     
                 }
+                gunData.currentAmmo--;
+                timeSinceLastShot = 0;
+                //OnGunShot();
             }
-
-            gunData.currentAmmo--;
-            timeSinceLastShot = 0;
-            //OnGunShot();
         }
     }
 
@@ -45,12 +49,17 @@ public class Gun : MonoBehaviour
         Debug.DrawRay(cam.position, cam.forward * gunData.maxDistance);
     }
 
-    
+    private void OnDisable()
+    {
+        PlayerShoot.shootInput -= Shoot;
+    }
+
+
     /*
     private void OnGunShot() 
     {
         throw new NotImplementedException();
     }
     */
-    
+
 }
