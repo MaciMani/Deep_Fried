@@ -2,15 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Gun : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GunData gunData;
     [SerializeField] private Transform cam;
+    [SerializeField] private TextMeshProUGUI gunName;
+    [SerializeField] private TextMeshProUGUI ammoCount;
 
     float timeSinceLastShot;
-
+    
     private void Awake()
     {
         gunData.currentAmmo = gunData.maxAmmo;
@@ -47,6 +50,9 @@ public class Gun : MonoBehaviour
         timeSinceLastShot += Time.deltaTime;
 
         Debug.DrawRay(cam.position, cam.forward * gunData.maxDistance);
+
+        gunName.text = gunData.name;
+        ammoCount.text = Convert.ToString(gunData.currentAmmo);
     }
 
     private void OnDisable()
