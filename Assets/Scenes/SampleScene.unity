@@ -825,7 +825,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269348959}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.02, y: 1.56, z: -35.6}
+  m_LocalPosition: {x: -6.78, y: 0.79, z: -38.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1499,7 +1499,8 @@ GameObject:
   - component: {fileID: 712450940}
   - component: {fileID: 712450939}
   - component: {fileID: 712450937}
-  m_Layer: 0
+  - component: {fileID: 712450938}
+  m_Layer: 6
   m_Name: Wine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1518,8 +1519,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c2c63079eb4a947affefce21c575c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useEvents: 0
-  promptMessage: Grab Wine
+  useEvents: 1
+  promptMessage: Drink Wine
+  player: {fileID: 471443511}
+--- !u!114 &712450938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712450936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c232e0734ac2aaf4290c9bd0f510f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 471443521}
+        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
+        m_MethodName: RestoreHealth
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 20
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!136 &712450939
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1553,7 +1582,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 50ccd2d245de0f84c98513701ba47c04, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1591,8 +1620,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712450936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0.76, z: -35.96}
-  m_LocalScale: {x: 0.52, y: 0.44, z: 0.52}
+  m_LocalPosition: {x: -3, y: 0.76, z: -38.05}
+  m_LocalScale: {x: 0.4, y: 0.44, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -2638,6 +2667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useEvents: 0
   promptMessage: Grab Key
+  player: {fileID: 0}
 --- !u!1 &1114960472
 GameObject:
   m_ObjectHideFlags: 0
