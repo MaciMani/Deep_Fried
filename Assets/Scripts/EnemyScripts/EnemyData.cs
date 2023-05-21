@@ -84,8 +84,6 @@ public class EnemyData : MonoBehaviour
 
     private void Attack() 
     {
-        
-
         //Make sure enemy doesn´t move
         agent.SetDestination(transform.position);
 
@@ -96,8 +94,6 @@ public class EnemyData : MonoBehaviour
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
-        
-        
     }
 
     private void OnCollisionEnter(Collision collision)
