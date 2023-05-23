@@ -4741,7 +4741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6013330823173584288, guid: 4b0d8d3ee510a4640b9140ea53f271ff, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b0d8d3ee510a4640b9140ea53f271ff, type: 3}
@@ -9983,6 +9983,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6873547073770544057, guid: 5461617ae9e515e49bd656443430655e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6897736946164018564, guid: 5461617ae9e515e49bd656443430655e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -10007,6 +10011,10 @@ PrefabInstance:
       propertyPath: ammunitionDisplay
       value: 
       objectReference: {fileID: 1024045713}
+    - target: {fileID: 8279140165681703924, guid: 5461617ae9e515e49bd656443430655e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8279140166121699850, guid: 5461617ae9e515e49bd656443430655e, type: 3}
       propertyPath: promptText
       value: 
