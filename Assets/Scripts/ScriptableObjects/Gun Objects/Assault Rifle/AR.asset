@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Assault Rifle
   damage: 22
   maxDistance: 200
-  currentAmmo: 964716
-  maxAmmo: 500
+  currentAmmo: 0
+  maxAmmo: 100
   fireRate: 600
