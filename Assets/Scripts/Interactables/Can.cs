@@ -11,7 +11,7 @@ public class Can : Interactions
     {
         if((gun.currentAmmo < gun.maxAmmo))
         {
-            if (gun.currentAmmo + addAmmo > 100) gun.currentAmmo = 100;
+            if (gun.currentAmmo + addAmmo > gun.maxAmmo) gun.currentAmmo = gun.maxAmmo;
             else gun.currentAmmo += addAmmo;
             Destroy(gameObject);
         }
