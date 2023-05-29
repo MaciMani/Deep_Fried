@@ -9,9 +9,18 @@ public class PlayerLook : MonoBehaviour
 
     public float xSensitivity = 30f;
     public float ySensitivity = 30f;
+
+    public bool mouseForInputLook = true;
     
     public void ProcessLook(Vector2 input)
     {
+        /*
+        if (!mouseForInputLook)
+        {
+            return;
+        }
+        */
+
         float mouseX = input.x;
         float mouseY = input.y;
         //calculate camera rotation for looking up and down
@@ -21,7 +30,10 @@ public class PlayerLook : MonoBehaviour
         cam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         //rotate player to look left and right
         transform.Rotate(Vector3.up * (mouseX * Time.deltaTime) * xSensitivity);
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
+
+        
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }

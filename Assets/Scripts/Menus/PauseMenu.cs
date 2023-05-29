@@ -8,9 +8,13 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public static bool isPaused = false;
 
+    private PlayerLook _playerLook;
+
     // Start is called before the first frame update
     void Start()
     {
+        _playerLook = GetComponent<PlayerLook>();
+
         pauseMenu.SetActive(false);
     }
 
@@ -35,6 +39,10 @@ public class PauseMenu : MonoBehaviour
         pauseMenu?.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+
+        _playerLook.mouseForInputLook = true;
+
+        Cursor.visible = true;
     }
 
     public void ResumeGame()
@@ -42,10 +50,20 @@ public class PauseMenu : MonoBehaviour
         pauseMenu?.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+
+        //_playerLook.mouseForInputLook = false;
+
+        Cursor.visible = false;
     }
 
     public void GoToMainMenu() 
     {
+
+        //_playerLook.mouseForInputLook = false;
+
+        Cursor.visible = true;
+
+
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
