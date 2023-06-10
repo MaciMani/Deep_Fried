@@ -20,9 +20,10 @@ public class DeathMenu : MonoBehaviour
         pHealth = GetComponent<PlayerHealth>();
         if (pHealth.health <= 0)
         {
+            Cursor.visible = true;
             deathMenu?.SetActive(true);
             Time.timeScale = 0f;
-            pHealth.health = 100f;          
+            pHealth.health = 100f;
         }
     }
 
