@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48777f17f938ee4d9973b113d9e26dc, type: 3}
   m_Name: AR
   m_EditorClassIdentifier: 
-  name: Assault Rifle
+  name: Meatball Launcher
   damage: 22
   maxDistance: 200
-  currentAmmo: 0
+  currentAmmo: 100
   maxAmmo: 100
   fireRate: 600
