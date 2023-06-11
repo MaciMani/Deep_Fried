@@ -642,7 +642,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 20
+          m_FloatArgument: 5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -2406,6 +2406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useEvents: 0
   promptMessage: Grab Key
+  wine: {fileID: 0}
   player: {fileID: 0}
 --- !u!1 &1114960472
 GameObject:
@@ -4288,6 +4289,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sTMenu: {fileID: 1753767784}
   stage: Stage 2
+--- !u!114 &3268704210345148380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268704210345148366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10d770c3b2a29f418718b18ded11df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3356880670136172685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4632,6 +4645,10 @@ PrefabInstance:
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 471443521}
+    - target: {fileID: 8449606273785150052, guid: 7757d5dfe636cd24d9708f70fcd618ba, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestoreHealth
+      objectReference: {fileID: 0}
     - target: {fileID: 8449606273785150054, guid: 7757d5dfe636cd24d9708f70fcd618ba, type: 3}
       propertyPath: m_Name
       value: Wine

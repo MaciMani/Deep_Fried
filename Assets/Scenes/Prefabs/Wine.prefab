@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8449606273785150051}
   - component: {fileID: 8449606273785150050}
   - component: {fileID: 8449606273785150053}
-  - component: {fileID: 8449606273785150055}
   - component: {fileID: 8449606273785150052}
+  - component: {fileID: 8449606273785150055}
   m_Layer: 6
   m_Name: Wine
   m_TagString: Untagged
@@ -98,21 +98,6 @@ CapsuleCollider:
   m_Height: 0.21
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &8449606273785150055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8449606273785150054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68c2c63079eb4a947affefce21c575c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useEvents: 1
-  promptMessage: Drink Wine
-  player: {fileID: 0}
 --- !u!114 &8449606273785150052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +113,7 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8279140166121699851, guid: 5461617ae9e515e49bd656443430655e, type: 3}
         m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
         m_MethodName: RestoreHealth
         m_Mode: 4
@@ -136,7 +121,22 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 20
+          m_FloatArgument: 15
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8449606273785150055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8449606273785150054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c2c63079eb4a947affefce21c575c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useEvents: 1
+  promptMessage: Drink Wine
+  player: {fileID: 6897736946164018564, guid: 5461617ae9e515e49bd656443430655e, type: 3}

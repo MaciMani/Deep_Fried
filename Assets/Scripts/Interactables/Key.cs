@@ -10,6 +10,6 @@ public class Key : Interactions
     protected override void Interact()
     {
         pHealth = player.GetComponent<PlayerHealth>();
-        if (pHealth.health < 100) Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

@@ -20,6 +20,9 @@ public class STransitionMenu : MonoBehaviour
         if (nEnemies.numberOfEnemies == 0)
         {
             sTMenu?.SetActive(true);
+
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
