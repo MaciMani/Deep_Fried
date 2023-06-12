@@ -21,8 +21,13 @@ public class PlayerLook : MonoBehaviour
         }
         */
 
-        float mouseX = input.x;
-        float mouseY = input.y;
+        float sensitivity = 1.2f; // Adjust this value to change the sensitivity
+
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
+
+        //float mouseX = input.x;
+        //float mouseY = input.y;
         //calculate camera rotation for looking up and down
         xRotation -= (mouseY * Time.deltaTime) * ySensitivity;
         xRotation = Mathf.Clamp(xRotation, -80f, 80f);
@@ -31,7 +36,5 @@ public class PlayerLook : MonoBehaviour
         //rotate player to look left and right
         transform.Rotate(Vector3.up * (mouseX * Time.deltaTime) * xSensitivity);
 
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Confined;
     }
 }

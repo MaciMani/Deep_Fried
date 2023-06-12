@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class STransitionMenu : MonoBehaviour
+public class WinMenu : MonoBehaviour
 {
-    public GameObject sTMenu;
+    public GameObject WMenu;
     private EnemyCount nEnemies;
 
     void Start()
     {
-        sTMenu.SetActive(false);
+        WMenu.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     void Update()
@@ -18,7 +19,7 @@ public class STransitionMenu : MonoBehaviour
         nEnemies = GetComponent<EnemyCount>();
         if (nEnemies.numberOfEnemies == 0)
         {
-            sTMenu?.SetActive(true);
+            WMenu?.SetActive(true);
 
             Time.timeScale = 1f;
 
@@ -27,10 +28,9 @@ public class STransitionMenu : MonoBehaviour
         }
     }
 
-    public void GoToNextStage()
+    public void PlayAgain()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Debug.Log("It works!!!!!!");
-        //Time.timeScale = 1f;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 }

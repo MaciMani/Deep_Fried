@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnemyCount : MonoBehaviour
 {
+    [SerializeField] private AudioSource deathSound;
     public int numberOfEnemies;
+    int currentNumberOfEnemies;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,10 +17,11 @@ public class EnemyCount : MonoBehaviour
     void Update()
     {
         numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        if (numberOfEnemies == 0)
+        if (numberOfEnemies != currentNumberOfEnemies)
         {
-
+            deathSound.Play();
         }
+        currentNumberOfEnemies = numberOfEnemies;
         Debug.Log(numberOfEnemies);
     }
 }
